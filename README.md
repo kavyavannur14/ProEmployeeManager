@@ -1,148 +1,221 @@
 # ProEmployeeManager
 
-A professional Task & Employee management system — React (Vite + Tailwind) frontend and Express + MongoDB backend. Clean UI with dark mode, SweetAlert2 feedback and a minimal REST API for employees and tasks.
+A professional Task & Employee management system built with React (Vite + Tailwind) frontend and Express + MongoDB backend. Features clean UI with dark mode support, real-time task assignment, and SweetAlert2 notifications.
 
 ---
 
-[Live Demo (local)](http://localhost:5173) • Frontend: [frontend/src/main.jsx](frontend/src/main.jsx) • Backend: [backend/app.js](backend/app.js)
+## Live Demo
 
-Badges
-| CI | License |
-|---|---|
-| ![local](https://img.shields.io/badge/local-dev-blue) | ![MIT](https://img.shields.io/badge/license-MIT-green) |
+[ProEmployeeManager Demo](https://pro-employee-manager.vercel.app/) 
 
-Quick links
-- App bootstrap: [backend/server.js](backend/server.js)
-- Frontend root: [frontend/src/App.jsx](frontend/src/App.jsx)
-- Sidebar: [frontend/src/components/Sidebar.jsx](frontend/src/components/Sidebar.jsx)
-- Task board: [frontend/src/components/Taskboard.jsx](frontend/src/components/Taskboard.jsx)
-- Employee controllers: [`createEmployee`](backend/controllers/employee.js) — [backend/controllers/employee.js](backend/controllers/employee.js)
-- Task controllers: [`createTask`](backend/controllers/task.js), [`getTasks`](backend/controllers/task.js), [`updateTask`](backend/controllers/task.js), [`deleteTask`](backend/controllers/task.js) — [backend/controllers/task.js](backend/controllers/task.js)
-- Models: [`Employee`](backend/models/employeeSchema.js) — [backend/models/employeeSchema.js](backend/models/employeeSchema.js), [`Task`](backend/models/taskSchema.js) — [backend/models/taskSchema.js](backend/models/taskSchema.js)
-- Routes: [backend/routes/employeeRoute.js](backend/routes/employeeRoute.js), [backend/routes/taskRoute.js](backend/routes/taskRoute.js)
-- Root .gitignore: [.gitignore](.gitignore) · Frontend .gitignore: [frontend/.gitignore](frontend/.gitignore)
+---
 
-Why show this project
-- Clean, presentable UI with dark mode that you can demo on-screen.
-- Real backend with MongoDB (Atlas) and Mongoose models — good to show API and data flow.
-- Uses SweetAlert2 for consistent action feedback — nice visual polish for demos.
-- Easy to run locally and present in interviews or project walkthroughs.
+## Features
 
-Features (concise)
-- Employee CRUD (hire + list)
-- Assign, update, delete tasks
-- Task priorities, statuses, due dates
-- Dark mode and responsive layout
-- Toast / modal feedback using SweetAlert2
-- TailwindCSS utilities and component-driven UI
+| Feature | Details |
+|---------|---------|
+| Employee Management | Hire, view, and manage team members |
+| Task Assignment | Assign tasks with priorities and due dates |
+| Task Tracking | Monitor task status across the team |
+| Dark Mode | Full dark theme support with localStorage persistence |
+| Real-time Updates | Instant feedback with SweetAlert2 notifications |
+| Responsive Design | Works seamlessly on desktop and tablet |
+| Employee Search | Quick access to team members from sidebar |
 
-Tech stack
-- Frontend: React 19, Vite, TailwindCSS, SweetAlert2, react-icons — [frontend/package.json](frontend/package.json)
-- Backend: Node (ESM), Express 5, Mongoose, dotenv — [backend/package.json](backend/package.json)
-- Database: MongoDB Atlas (MONGO_URI in [backend/config/config.env](backend/config/config.env))
+---
 
-Repository layout (short)
-- backend/ — Express API, controllers, models, routes
-  - [backend/app.js](backend/app.js) — express app config
-  - [backend/server.js](backend/server.js) — server bootstrap
-  - [backend/controllers/employee.js](backend/controllers/employee.js)
-  - [backend/controllers/task.js](backend/controllers/task.js)
-  - [backend/models/employeeSchema.js](backend/models/employeeSchema.js)
-  - [backend/models/taskSchema.js](backend/models/taskSchema.js)
-- frontend/ — Vite + React UI
-  - [frontend/src/App.jsx](frontend/src/App.jsx)
-  - [frontend/src/components/Sidebar.jsx](frontend/src/components/Sidebar.jsx)
-  - [frontend/src/components/Taskboard.jsx](frontend/src/components/Taskboard.jsx)
+## 🛠Tech Stack
 
-Environment (example)
-Create `backend/config/config.env` with:
-| KEY | EXAMPLE |
-|---|---|
-| MONGO_URI | mongodb+srv://<user>:<pass>@cluster0.mongodb.net/?retryWrites=true&w=majority |
-| PORT | 4000 |
-| FRONTEND_URL | http://localhost:5173 |
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React 19, Vite, TailwindCSS, SweetAlert2, react-icons, axios |
+| **Backend** | Node.js (ESM), Express 5, Mongoose 9, dotenv |
+| **Database** | MongoDB Atlas |
+| **Styling** | TailwindCSS with dark mode (class-based) |
 
-Run locally (quick)
-1. Backend
+---
+
+## 📁Project Structure
+
+```
+ProEmployeeManager/
+├── backend/
+│   ├── config/
+│   │   └── config.env
+│   ├── controllers/
+│   │   ├── employee.js
+│   │   └── task.js
+│   ├── database/
+│   │   └── dbConnection.js
+│   ├── models/
+│   │   ├── employeeSchema.js
+│   │   └── taskSchema.js
+│   ├── routes/
+│   │   ├── employeeRoute.js
+│   │   └── taskRoute.js
+│   ├── error/
+│   │   └── error.js
+│   ├── app.js
+│   ├── server.js
+│   └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── Taskboard.jsx
+│   │   ├── Pages/
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── package.json
+├── .gitignore
+└── README.md
+```
+
+---
+
+## Environment Setup
+
+Create `backend/config/config.env` with the following variables:
+
+```env
+PORT=4000
+FRONTEND_URL=http://localhost:5173
+MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/ProEmployee?retryWrites=true&w=majority
+```
+
+---
+
+##  Getting Started
+
+### Prerequisites
+- Node.js v18+
+- npm or yarn
+- MongoDB Atlas account
+
+### Backend Setup
+
 ```bash
 cd backend
 npm install
 npm run dev
 ```
 
-2. Frontend
+Server runs on `http://localhost:4000` with hot-reload via nodemon.
+
+### Frontend Setup
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open frontend at http://localhost:5173 (default Vite port). Backend listens on port from [backend/config/config.env](backend/config/config.env) (default 4000) and exposes API under `/api/v1`.
+App runs on `http://localhost:5173` with Vite HMR.
 
 ---
 
-## Useful npm scripts
+## Available Scripts
 
-| Location | Script | Action |
-|---|---:|---|
-| backend/package.json | dev | nodemon server.js (dev) |
-| backend/package.json | start | node server.js |
-| frontend/package.json | dev | vite (dev server) |
-| frontend/package.json | build | vite build |
-| frontend/package.json | preview | vite preview |
-
-Files: [backend/package.json](backend/package.json) · [frontend/package.json](frontend/package.json)
+| Location | Command | Purpose |
+|----------|---------|---------|
+| `backend/` | `npm run dev` | Start backend with nodemon (development) |
+| `backend/` | `npm start` | Start backend (production) |
+| `frontend/` | `npm run dev` | Start Vite dev server |
+| `frontend/` | `npm run build` | Build for production |
+| `frontend/` | `npm run preview` | Preview production build locally |
 
 ---
 
-## API reference (overview)
+## API Endpoints
 
-All endpoints are mounted under `/api/v1`.
+All endpoints are prefixed with `/api/v1`.
 
-Employees
-| Method | Path | Controller |
-|---|---|---|
-| POST | /api/v1/employee/send | [backend/controllers/employee.js#createEmployee](backend/controllers/employee.js) |
-| GET | /api/v1/employee/getall | [backend/controllers/employee.js#getEmployees](backend/controllers/employee.js) |
+### Employees
 
-Tasks
-| Method | Path | Controller |
-|---|---|---|
-| POST | /api/v1/task/send | [backend/controllers/task.js#createTask](backend/controllers/task.js) |
-| GET | /api/v1/task/getall | [backend/controllers/task.js#getTasks](backend/controllers/task.js) |
-| PUT | /api/v1/task/update/:id | [backend/controllers/task.js#updateTask](backend/controllers/task.js) |
-| DELETE | /api/v1/task/delete/:id | [backend/controllers/task.js#deleteTask](backend/controllers/task.js) |
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/employee/send` | Create new employee |
+| GET | `/employee/getall` | Get all employees |
 
-Example: assign a task (curl)
+### Tasks
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/task/send` | Create and assign task |
+| GET | `/task/getall` | Get all tasks (populated with employee details) |
+| PUT | `/task/update/:id` | Update task details |
+| DELETE | `/task/delete/:id` | Delete task |
+
+### Example: Assign Task
+
 ```bash
 curl -X POST http://localhost:4000/api/v1/task/send \
   -H "Content-Type: application/json" \
-  -d '{"title":"Fix UI","description":"Adjust header spacing","assignedTo":"<EMPLOYEE_ID>","priority":"High","dueDate":"2025-12-09"}'
+  -d '{
+    "title": "Fix Bug #123",
+    "description": "Resolve critical login issue",
+    "assignedTo": "674f8a2c9d1e2f3g4h5i6j7k",
+    "priority": "High",
+    "dueDate": "2025-12-15"
+  }'
 ```
 
 ---
 
-## Frontend notes
-- Global styles & Tailwind imported in: [frontend/src/main.jsx](frontend/src/main.jsx) and [frontend/src/index.css](frontend/src/index.css)  
-- Dark mode toggles the `dark` class on the document via localStorage in [frontend/src/App.jsx](frontend/src/App.jsx) and the toggle UI is in [frontend/src/components/Sidebar.jsx](frontend/src/components/Sidebar.jsx).  
+## UI Highlights
+
+- **Sidebar Navigation** — Quick employee access with selection highlighting
+- **Task Board** — Organized task cards with priority badges and due dates
+- **Modal Forms** — Clean, validated input forms for hiring and task assignment
+- **Dark Mode Toggle** — Seamless theme switching with persistence
+- **Responsive Layout** — Optimized for desktop and tablet viewing
+- **Toast Notifications** — SweetAlert2 for success, error, and warning feedback
 
 ---
 
-## Contributing
-- Fork → feature branch → PR with description and screenshots.
-- Keep commits atomic and add short, clear messages.
-- Run lint and basic manual test before opening PR.
+## Security Features
+
+- CORS enabled with frontend URL whitelisting
+- Input validation on both client and server
+- Unique email validation for employees
+- Error handling middleware with sanitized error messages
+- Environment variables for sensitive data
 
 ---
 
 ## Troubleshooting
-- CORS issues: check [backend/app.js](backend/app.js) uses FRONTEND_URL in [backend/config/config.env](backend/config/config.env).  
-- Missing employee names: ensure API populates employee fields in [backend/controllers/task.js](backend/controllers/task.js).  
-- If UI shows white cards in dark mode, Tailwind dark variants are used in [frontend/src/components/Taskboard.jsx](frontend/src/components/Taskboard.jsx).
+
+| Issue | Solution |
+|-------|----------|
+| CORS errors | Verify `FRONTEND_URL` in [backend/config/config.env](backend/config/config.env) matches your frontend origin |
+| Missing employee names in tasks | Ensure [backend/controllers/task.js](backend/controllers/task.js) populates `firstName` and `lastName` fields |
+| White task cards in dark mode | Check TailwindCSS dark variants in [frontend/src/components/Taskboard.jsx](frontend/src/components/Taskboard.jsx) |
+| Database connection failed | Verify `MONGO_URI` is correct and your IP is whitelisted in MongoDB Atlas |
+| Tasks not appearing | Refresh the page or check browser console for API errors |
+
+---
+
+## Notes
+
+- Dark mode preference is saved to localStorage and persists across sessions
+- Task dates cannot be set to the past
+- Employee email addresses must be unique
+- All task assignments require a valid employee ID
+- Modal forms validate all required fields before submission
+
+---
+
+## Author
+
+Developed by Kavya Sree Vannurappa Gari
 
 ---
 
 ## License
-Add a license file as needed (e.g., `LICENSE.md`).
 
----
+This project is open source. Feel free to use and modify as needed.
